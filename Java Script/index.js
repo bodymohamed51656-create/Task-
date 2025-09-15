@@ -35,7 +35,7 @@ let namesLower = students.map(students => students.name.toLowerCase());
 console.log(namesLower);
 
 let above80 = students.filter(students => {
-  let avg = students.grades.reduce((a, b) => a + b, 0) / students.grades.length;
+  let avg = students.grades.reduce((sum, grade) => sum + grade, 0) / students.grades.length;
   return avg > 80;
 });
 console.log(above80);
@@ -48,12 +48,13 @@ console.log(highestGrades);
 
 function getTotalGrades(name) {
   let student = students.find(students => students.name === name);
-  return student ? student.grades.reduce((a, b) => a + b, 0) : 0;
+  return student ? student.grades.reduce((total, grade) => total + grde, 0) : 0;
 }
 console.log(getTotalGrades("Mona")); 
 
 let totalAllGrades = students.reduce((sum, students) => {
-  return sum + students.grades.reduce((a, b) => a + b, 0);
+  return sum + students.grades.reduce((totalAll, grade) => totalAll + grade, 0);
 }, 0);
 console.log(totalAllGrades);
+
 
